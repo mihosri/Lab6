@@ -31,17 +31,36 @@
                             <c:forEach var="user" items="${users}">
                                 <tr>
                                     <td>${user.email}</td>
-                                    <td>${user.firstname}</td>
-                                    <td>${user.lastname}</td>
+                                    <td>${user.firstame}</td>
+                                    <td>${user.lastName}</td>
                                     <td>${user.active ? "Y" : "N"}</td>
                                     <td>
-                                        <a href="">Edit</a>
+                                        <a href="editForm? action=edit">Edit</a>
                                         <a href="">Delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
+                    
+                    <form action="editForm" method="post">
+                            <label for="email">Email</label><br>
+                            <input type="text" id="email" name="email" value="${user.email}"><br>
+                            
+                            <label for="fname">First Name</label><br>
+                            <input type="text" id="fname" name="fname" value="${user.firstname}"><br>
+                            
+                            <label for="lname">Last Name</label><br>
+                            <input type="text" id="lname" name="lname" value="${user.lastname}"><br>
+                            
+                            <label for="password">Password</label><br>
+                            <input type="password" id="password" name="password" value="${user.password}"><br>
+                            
+                            <label for="role">Role ID</label><br>
+                            <input type="number" id="role" name="role" value="${user.Role().getId()}"><br>
+                            
+                            <button type="submit"> Submit </button>
+                    </form>                   
                 </div>    
             </div>
         </div>     
